@@ -1,1 +1,0 @@
-Exercises from Book <<[Learning Concurrent Programming in Scala - Second Edition](https://www.amazon.com/Learning-Concurrent-Programming-Aleksandar-Prokopec/dp/1783281413/ref=sr_1_1?ie=UTF8&qid=1488750377&sr=8-1&keywords=Learning+Concurrent+Programming+in+Scala)>>
