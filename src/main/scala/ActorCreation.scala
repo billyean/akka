@@ -47,6 +47,7 @@ object Creation extends App {
 
   player ! MusicPlayer.StartMusic
 
+  player ! MusicPlayer.StopMusic
 
   system.terminate()
 

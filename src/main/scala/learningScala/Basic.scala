@@ -1,5 +1,9 @@
 package learningScala
 
+import java.util.stream.Collectors
+
+import scala.annotation.tailrec
+
 /**
   *
   */
@@ -104,7 +108,19 @@ object Basic extends App{
     * @param regex
     * @return
     */
-  def matcher   (regex: String): PartialFunction[String, List[String]] = ???
+  def matcher (regex: String): PartialFunction[String, List[String]] = ???
+
+
+  /**
+    * A simple higher order function. Higher order function is a function that take a function as a parameter or return
+    * functions. Here sum take a function f as variable. return a function that doing sum of on function f.
+    * @param f
+    * @return
+    */
+  def sum(f: Int => Int): (Seq[Int]) => Int = {
+    (seq: Seq[Int]) => seq.map(s => f(s)).sum
+  }
+
 
   val g : Int => Int = x => x + 10
   val f : Int => String = x => String.valueOf(x)
@@ -122,8 +138,9 @@ object Basic extends App{
   }
 
 
-  List("", "O", "four", "All").foreach(s => {
-    val sPermutated = permutation(s).foldLeft("")(merge)
+  List("", "O", "four", "All", "abcdefgh").foreach(s => {
+//    val sPermutated = permutation(s).foldLeft("")(merge)
+    val sPermutated = permutation(s).mkString(",")
     println(s"""Permutation of "${s}" is [${sPermutated}]""")
   })
 
@@ -132,5 +149,13 @@ object Basic extends App{
     println("============")
     iter.foreach(println)
   })
+
+  println(sum(v => v * v)(List(1,2,3)))
+  println(sum(v => v * v * v)(List(1,2,3, 4)))
+
+
+  val sum1 : (Int => Int, Seq[Int]) => Int = (f, seq) => seq.map(s => f(s)).sum
+  val sum1Curried = sum1.curried
+  println(sum1Curried(v => 2 * v )(List(1,2,3,4,5,6)))
 
 }
