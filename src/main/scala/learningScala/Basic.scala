@@ -138,7 +138,7 @@ object Basic extends App{
   }
 
 
-  List("", "O", "four", "All", "abcdefgh").foreach(s => {
+  List("", "O", "four", "All", "abcdefghij").foreach(s => {
 //    val sPermutated = permutation(s).foldLeft("")(merge)
     val sPermutated = permutation(s).mkString(",")
     println(s"""Permutation of "${s}" is [${sPermutated}]""")
