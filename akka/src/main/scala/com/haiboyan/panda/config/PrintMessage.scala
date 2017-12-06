@@ -1,4 +1,4 @@
-package com.intuit.ctodev.qe.config
+package com.haiboyan.panda.config
 
 import akka.actor.Actor
 import akka.actor.Actor.Receive

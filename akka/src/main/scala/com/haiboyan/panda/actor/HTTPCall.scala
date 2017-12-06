@@ -1,4 +1,4 @@
-package com.intuit.ctodev.qe.actor
+package com.haiboyan.panda.actor
 
 import akka.actor.Actor
 

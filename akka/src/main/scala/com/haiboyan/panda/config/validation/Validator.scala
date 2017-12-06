@@ -1,4 +1,4 @@
-package com.intuit.ctodev.qe.config.validation
+package com.haiboyan.panda.config.validation
 
 /**
   * Created by hyan on 3/9/17.

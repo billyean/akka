@@ -1,7 +1,8 @@
-package com.intuit.ctodev.qe.polling
+package com.haiboyan.panda.polling
 
 import akka.actor.Actor
-import com.intuit.ctodev.qe.polling.SleepActor.{Sleep, SleepDone}
+import com.haiboyan.panda.polling.SleepActor.SleepDone
+import com.haiboyan.panda.polling.SleepActor.{Sleep, SleepDone}
 
 /**
   * The purpose for this Actor is just sleeping and doing nothing, purpose for this class is prevent sleeping affect

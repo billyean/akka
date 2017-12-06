@@ -1,4 +1,4 @@
-package com.intuit.ctodev.qe.actor
+package com.haiboyan.panda.actor
 
 /**
   * Created by hyan on 3/22/17.

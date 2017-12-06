@@ -1,4 +1,4 @@
-package com.intuit.ctodev.qe.config
+package com.haiboyan.panda.config
 
 import akka.actor.{ActorSystem, Props}
 import py4j.GatewayServer

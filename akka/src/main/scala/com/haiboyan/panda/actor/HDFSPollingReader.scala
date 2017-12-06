@@ -1,11 +1,13 @@
-package com.intuit.ctodev.qe.actor
+package com.haiboyan.panda.actor
 
 import akka.actor.Actor
-import com.intuit.ctodev.qe.actor.HDFSPollingReader.{Poll, conf}
-import com.intuit.ctodev.qe.polling.SleepActor.Sleep
+import com.haiboyan.panda.actor.HDFSPollingReader.{Poll, conf}
+import com.haiboyan.panda.polling.SleepActor.Sleep
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
 import java.io.{BufferedReader, InputStreamReader}
+
+import com.haiboyan.panda.polling.SleepActor.Sleep
 
 /**
   * This is a simple polling reader that poll all contents from HDFS Client with given path. After read
