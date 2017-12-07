@@ -1,5 +1,7 @@
 package com.haiboyan.filesearch
 
+import java.io.File
+
 import org.scalatest.FlatSpec
 
 class MatchesTest extends FlatSpec {
@@ -9,5 +11,20 @@ class MatchesTest extends FlatSpec {
     val results = matcher.execute()
 
     assert(results == List("fakePath"))
+  }
+
+  "Matcher using a directory containing one file matching the filter " should
+    "return a list with that file name" in {
+    val matcher = new Matcher("txt", new File(".//testfiles//").getCanonicalPath)
+    val results = matcher.execute()
+    assert(results == List("readme.txt"))
+  }
+
+
+  "Matcher with search sub folder using a directory containing one file matching the filter and one file in subfolder matching the filter " should
+    "return a list with that two files name" in {
+    val matcher = new Matcher("txt", new File(".//testfiles//").getCanonicalPath, true)
+    val results = matcher.execute()
+    assert(results == List("notes.txt", "readme.txt"))
   }
 }

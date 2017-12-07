@@ -3,7 +3,7 @@ package com.haiboyan.filesearch
 class FilterChecker(filter: String) {
   def matches(ioObject : IOObject) = {
     ioObject match {
-      case f: FileObject => f.name matches filter
+      case f: FileObject => f.name contains filter
       case _ => false
     }
   }
