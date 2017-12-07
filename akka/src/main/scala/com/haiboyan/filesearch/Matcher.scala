@@ -6,7 +6,7 @@ import java.nio.file.Paths.get
 
 import scala.annotation.tailrec
 
-class Matcher(filter: String, root: String, checkSubFolder: Boolean = false) {
+class Matcher(filter: String, root: String, checkSubFolder: Boolean = false, contentFilter: Option[String] = None) {
   val rootIOObject = FileConverter.convertToIOObject(new File(root))
 
   def execute() = {
@@ -16,7 +16,7 @@ class Matcher(filter: String, root: String, checkSubFolder: Boolean = false) {
         case List() => currentList
         case iOObject :: rest =>
           iOObject match {
-            case file : FileObject if FilterChecker(filter) matches file =>
+            case file : FileObject if FilterChecker(filter) matches file  =>
               recursiveMatch(rest, file :: currentList)
             case directory : DirectoryObject =>
               recursiveMatch(rest ::: directory.children(), currentList)

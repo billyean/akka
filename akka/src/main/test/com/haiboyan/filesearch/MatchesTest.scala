@@ -27,4 +27,19 @@ class MatchesTest extends FlatSpec {
     val results = matcher.execute()
     assert(results == List("notes.txt", "readme.txt"))
   }
+
+  "Matcher given a path that one file matches file filter and content filter " should
+    "return a list with that file name" in {
+    val matcher = new Matcher("data", new File(".//testfiles//").getCanonicalPath, true, Some("Tristan"))
+    val results = matcher.execute()
+    assert(results == List("names.data"))
+  }
+
+
+  "Matcher given a path that has no file matches file filter and content filter " should
+    "return a list with that file name" in {
+    val matcher = new Matcher("txt", new File(".//testfiles//").getCanonicalPath, true, Some("Tristan"))
+    val results = matcher.execute()
+    assert(results == List()
+  }
 }
