@@ -1,3 +1,6 @@
 akka/target/**
 akka/.idea/**
 akka/project/**
+spark/target/**
+spark/project/**
+spark/.idea/**
