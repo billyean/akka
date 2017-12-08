@@ -40,6 +40,6 @@ class MatchesTest extends FlatSpec {
     "return a list with that file name" in {
     val matcher = new Matcher("txt", new File(".//testfiles//").getCanonicalPath, true, Some("Tristan"))
     val results = matcher.execute()
-    assert(results == List()
+    assert(results == List())
   }
 }

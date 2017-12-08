@@ -25,7 +25,7 @@ class Matcher(filter: String, root: String, checkSubFolder: Boolean = false, con
       }
 
     val matchedFiles = rootIOObject match  {
-      case file : FileObject if FilterChecker(filter).matches(file) => List(file)
+      case file : FileObject if (FilterChecker(filter).matches(file)) => List(file)
       case directory: DirectoryObject =>
         if (checkSubFolder)
           recursiveMatch(directory.children(), List())
@@ -34,6 +34,11 @@ class Matcher(filter: String, root: String, checkSubFolder: Boolean = false, con
       case _ => List()
     }
 
-    matchedFiles map(file => file.name)
+    val matchedContentFiles = contentFilter match {
+      case Some(dataFilter) => matchedFiles filter(ioObject => FilterChecker(dataFilter).matchesFileContent(ioObject.file))
+      case None => matchedFiles
+    }
+
+    matchedContentFiles map(file => file.name)
   }
 }
