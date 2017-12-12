@@ -4,6 +4,8 @@ import java.io.File
 import java.nio.file.Files.readAllLines
 
 class FilterChecker(filter: String) {
+  val filterAsRegex = filter.r
+
   def matches(ioObject : IOObject) = {
     ioObject match {
       case f: FileObject => f.name contains filter
@@ -18,6 +20,14 @@ class FilterChecker(filter: String) {
   def matchesFileContent(file: File) = {
     import scala.collection.JavaConverters._
     readAllLines(file.toPath).asScala exists(p => p.contains(filter))
+  }
+
+  def findMatchedContentCount(file: File): Int = {
+    def getFilterMatchCount(content: String) =
+      (filterAsRegex findAllIn content).length
+
+    import scala.collection.JavaConverters._
+    readAllLines(file.toPath).asScala.foldLeft(0) ((accumulator, line) => accumulator + getFilterMatchCount(line))
   }
 }
 

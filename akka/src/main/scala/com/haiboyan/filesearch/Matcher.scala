@@ -34,11 +34,22 @@ class Matcher(filter: String, root: String, checkSubFolder: Boolean = false, con
       case _ => List()
     }
 
+//    val matchedContentFiles = contentFilter match {
+//      case Some(dataFilter) => matchedFiles filter(ioObject => FilterChecker(dataFilter).findMatchedContentCount(ioObject.file) > 0)
+//      case None => matchedFiles
+//    }
+//
+//    matchedContentFiles map(file => file.name)
+
     val matchedContentFiles = contentFilter match {
-      case Some(dataFilter) => matchedFiles filter(ioObject => FilterChecker(dataFilter).matchesFileContent(ioObject.file))
-      case None => matchedFiles
+      case Some(dataFilter) =>
+        val t = matchedFiles map(ioObject =>
+          (ioObject, Some(FilterChecker(dataFilter).findMatchedContentCount(ioObject.file))))
+        t.filter(p => p._2.get > 0)
+      case None =>
+        matchedFiles map(ioObject => (ioObject, None))
     }
 
-    matchedContentFiles map(file => file.name)
+    matchedContentFiles map(t => (t._1.name, t._2))
   }
 }
