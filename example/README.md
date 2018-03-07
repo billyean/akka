@@ -10,7 +10,7 @@
 
 ## Chapter 3 - Working with Arrays
 
-* [set random N](src/main/scala/array/WorkingWithArray.scala)
+* [set random N](src/main/scala/array/WorkingWithArray.scala#setRandomN)
 * [swap adjacent](src/main/scala/array/WorkingWithArray.scala)
 * [yield adjacent](src/main/scala/array/WorkingWithArray.scala)
 * [seperate between positive and zero/negative](src/main/scala/array/WorkingWithArray.scala)
