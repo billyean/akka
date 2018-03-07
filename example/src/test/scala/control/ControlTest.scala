@@ -2,7 +2,6 @@ package control
 
 import org.scalatest.{FunSuite, Matchers}
 
-
 class ControlTest extends FunSuite with Matchers {
   test("signum positive") {
     assert(Control.signum(10) === 1)
