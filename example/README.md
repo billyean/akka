@@ -16,4 +16,4 @@
 * [seperate between positive and zero/negative](src/main/scala/array/WorkingWithArray.scala)
 * [double average](src/main/scala/array/WorkingWithArray.scala)
 * [remove duplication](src/main/scala/array/WorkingWithArray.scala)
-* [reverse](src/main/scala/array/WorkingWithArray.scala)
+* [reverse](src/main/scala/array/WorkingWithArray.scala#reverse)
