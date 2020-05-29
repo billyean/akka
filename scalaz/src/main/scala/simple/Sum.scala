@@ -19,7 +19,12 @@ object Sum extends App{
 
   def sum2[A](xs: List[A], m: Monoid[A]): A = xs.foldRight(m.mzero){m.mappend}
 
+  def sum3[A](xs: List[A])(implicit m: Monoid[A]): A = xs.foldRight(m.mzero){m.mappend}
+
   println(s"sum(List(1,2,3,4)) = ${sum(List(1,2,3,4))}")
   println(s"sum1(List(1,2,3,4)) = ${sum1(List(1,2,3,4))}")
   println(s"sum1(List(1,2,3,4), IntMonoid) = ${sum2(List(1,2,3,4), IntMonoid)}")
+
+  implicit val intMonoid = IntMonoid
+  println(s"sum3(List(1,2,3,4)) = ${sum3(List(1,2,3,4))}")
 }
